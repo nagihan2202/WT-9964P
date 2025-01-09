@@ -1,0 +1,1004 @@
+<!DOCTYPE html>
+<html lang="tr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Send Feedback Modal</title>
+
+    <!-- Bootstrap CSS -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+
+    <!-- Font Awesome CSS -->
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
+      rel="stylesheet"
+    />
+    <style type="text/css">
+      @font-face {
+        font-family: Newsreader;
+        font-style: normal;
+        font-weight: 600;
+        src: url(/cf-fonts/v/newsreader/5.0.16/vietnamese/wght/normal.woff2);
+        unicode-range: U+0102-0103, U+0110-0111, U+0128-0129, U+0168-0169,
+          U+01A0-01A1, U+01AF-01B0, U+0300-0301, U+0303-0304, U+0308-0309,
+          U+0323, U+0329, U+1EA0-1EF9, U+20AB;
+        font-display: swap;
+      }
+      @font-face {
+        font-family: Newsreader;
+        font-style: normal;
+        font-weight: 600;
+        src: url(/cf-fonts/v/newsreader/5.0.16/latin/wght/normal.woff2);
+        unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6,
+          U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+2074, U+20AC,
+          U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+        font-display: swap;
+      }
+      @font-face {
+        font-family: Newsreader;
+        font-style: normal;
+        font-weight: 600;
+        src: url(/cf-fonts/v/newsreader/5.0.16/latin-ext/wght/normal.woff2);
+        unicode-range: U+0100-02AF, U+0304, U+0308, U+0329, U+1E00-1E9F,
+          U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20CF, U+2113, U+2C60-2C7F,
+          U+A720-A7FF;
+        font-display: swap;
+      }
+      @font-face {
+        font-family: Newsreader;
+        font-style: italic;
+        font-weight: 600;
+        src: url(/cf-fonts/v/newsreader/5.0.16/vietnamese/wght/italic.woff2);
+        unicode-range: U+0102-0103, U+0110-0111, U+0128-0129, U+0168-0169,
+          U+01A0-01A1, U+01AF-01B0, U+0300-0301, U+0303-0304, U+0308-0309,
+          U+0323, U+0329, U+1EA0-1EF9, U+20AB;
+        font-display: swap;
+      }
+      @font-face {
+        font-family: Newsreader;
+        font-style: italic;
+        font-weight: 600;
+        src: url(/cf-fonts/v/newsreader/5.0.16/latin-ext/wght/italic.woff2);
+        unicode-range: U+0100-02AF, U+0304, U+0308, U+0329, U+1E00-1E9F,
+          U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20CF, U+2113, U+2C60-2C7F,
+          U+A720-A7FF;
+        font-display: swap;
+      }
+      @font-face {
+        font-family: Newsreader;
+        font-style: italic;
+        font-weight: 600;
+        src: url(/cf-fonts/v/newsreader/5.0.16/latin/wght/italic.woff2);
+        unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6,
+          U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+2074, U+20AC,
+          U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+        font-display: swap;
+      }
+    </style>
+    <style type="text/css">
+      @font-face {
+        font-family: Mulish;
+        font-style: normal;
+        font-weight: 300;
+        src: url(/cf-fonts/v/mulish/5.0.16/cyrillic/wght/normal.woff2);
+        unicode-range: U+0301, U+0400-045F, U+0490-0491, U+04B0-04B1, U+2116;
+        font-display: swap;
+      }
+      @font-face {
+        font-family: Mulish;
+        font-style: normal;
+        font-weight: 300;
+        src: url(/cf-fonts/v/mulish/5.0.16/cyrillic-ext/wght/normal.woff2);
+        unicode-range: U+0460-052F, U+1C80-1C88, U+20B4, U+2DE0-2DFF,
+          U+A640-A69F, U+FE2E-FE2F;
+        font-display: swap;
+      }
+      @font-face {
+        font-family: Mulish;
+        font-style: normal;
+        font-weight: 300;
+        src: url(/cf-fonts/v/mulish/5.0.16/latin/wght/normal.woff2);
+        unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6,
+          U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+2074, U+20AC,
+          U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+        font-display: swap;
+      }
+      @font-face {
+        font-family: Mulish;
+        font-style: normal;
+        font-weight: 300;
+        src: url(/cf-fonts/v/mulish/5.0.16/latin-ext/wght/normal.woff2);
+        unicode-range: U+0100-02AF, U+0304, U+0308, U+0329, U+1E00-1E9F,
+          U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20CF, U+2113, U+2C60-2C7F,
+          U+A720-A7FF;
+        font-display: swap;
+      }
+      @font-face {
+        font-family: Mulish;
+        font-style: normal;
+        font-weight: 300;
+        src: url(/cf-fonts/v/mulish/5.0.16/vietnamese/wght/normal.woff2);
+        unicode-range: U+0102-0103, U+0110-0111, U+0128-0129, U+0168-0169,
+          U+01A0-01A1, U+01AF-01B0, U+0300-0301, U+0303-0304, U+0308-0309,
+          U+0323, U+0329, U+1EA0-1EF9, U+20AB;
+        font-display: swap;
+      }
+      @font-face {
+        font-family: Mulish;
+        font-style: normal;
+        font-weight: 500;
+        src: url(/cf-fonts/v/mulish/5.0.16/vietnamese/wght/normal.woff2);
+        unicode-range: U+0102-0103, U+0110-0111, U+0128-0129, U+0168-0169,
+          U+01A0-01A1, U+01AF-01B0, U+0300-0301, U+0303-0304, U+0308-0309,
+          U+0323, U+0329, U+1EA0-1EF9, U+20AB;
+        font-display: swap;
+      }
+      @font-face {
+        font-family: Mulish;
+        font-style: normal;
+        font-weight: 500;
+        src: url(/cf-fonts/v/mulish/5.0.16/cyrillic-ext/wght/normal.woff2);
+        unicode-range: U+0460-052F, U+1C80-1C88, U+20B4, U+2DE0-2DFF,
+          U+A640-A69F, U+FE2E-FE2F;
+        font-display: swap;
+      }
+      @font-face {
+        font-family: Mulish;
+        font-style: normal;
+        font-weight: 500;
+        src: url(/cf-fonts/v/mulish/5.0.16/latin/wght/normal.woff2);
+        unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6,
+          U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+2074, U+20AC,
+          U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+        font-display: swap;
+      }
+      @font-face {
+        font-family: Mulish;
+        font-style: normal;
+        font-weight: 500;
+        src: url(/cf-fonts/v/mulish/5.0.16/cyrillic/wght/normal.woff2);
+        unicode-range: U+0301, U+0400-045F, U+0490-0491, U+04B0-04B1, U+2116;
+        font-display: swap;
+      }
+      @font-face {
+        font-family: Mulish;
+        font-style: normal;
+        font-weight: 500;
+        src: url(/cf-fonts/v/mulish/5.0.16/latin-ext/wght/normal.woff2);
+        unicode-range: U+0100-02AF, U+0304, U+0308, U+0329, U+1E00-1E9F,
+          U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20CF, U+2113, U+2C60-2C7F,
+          U+A720-A7FF;
+        font-display: swap;
+      }
+      @font-face {
+        font-family: Mulish;
+        font-style: normal;
+        font-weight: 600;
+        src: url(/cf-fonts/v/mulish/5.0.16/latin-ext/wght/normal.woff2);
+        unicode-range: U+0100-02AF, U+0304, U+0308, U+0329, U+1E00-1E9F,
+          U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20CF, U+2113, U+2C60-2C7F,
+          U+A720-A7FF;
+        font-display: swap;
+      }
+      @font-face {
+        font-family: Mulish;
+        font-style: normal;
+        font-weight: 600;
+        src: url(/cf-fonts/v/mulish/5.0.16/cyrillic-ext/wght/normal.woff2);
+        unicode-range: U+0460-052F, U+1C80-1C88, U+20B4, U+2DE0-2DFF,
+          U+A640-A69F, U+FE2E-FE2F;
+        font-display: swap;
+      }
+      @font-face {
+        font-family: Mulish;
+        font-style: normal;
+        font-weight: 600;
+        src: url(/cf-fonts/v/mulish/5.0.16/vietnamese/wght/normal.woff2);
+        unicode-range: U+0102-0103, U+0110-0111, U+0128-0129, U+0168-0169,
+          U+01A0-01A1, U+01AF-01B0, U+0300-0301, U+0303-0304, U+0308-0309,
+          U+0323, U+0329, U+1EA0-1EF9, U+20AB;
+        font-display: swap;
+      }
+      @font-face {
+        font-family: Mulish;
+        font-style: normal;
+        font-weight: 600;
+        src: url(/cf-fonts/v/mulish/5.0.16/latin/wght/normal.woff2);
+        unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6,
+          U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+2074, U+20AC,
+          U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+        font-display: swap;
+      }
+      @font-face {
+        font-family: Mulish;
+        font-style: normal;
+        font-weight: 600;
+        src: url(/cf-fonts/v/mulish/5.0.16/cyrillic/wght/normal.woff2);
+        unicode-range: U+0301, U+0400-045F, U+0490-0491, U+04B0-04B1, U+2116;
+        font-display: swap;
+      }
+      @font-face {
+        font-family: Mulish;
+        font-style: normal;
+        font-weight: 700;
+        src: url(/cf-fonts/v/mulish/5.0.16/cyrillic/wght/normal.woff2);
+        unicode-range: U+0301, U+0400-045F, U+0490-0491, U+04B0-04B1, U+2116;
+        font-display: swap;
+      }
+      @font-face {
+        font-family: Mulish;
+        font-style: normal;
+        font-weight: 700;
+        src: url(/cf-fonts/v/mulish/5.0.16/cyrillic-ext/wght/normal.woff2);
+        unicode-range: U+0460-052F, U+1C80-1C88, U+20B4, U+2DE0-2DFF,
+          U+A640-A69F, U+FE2E-FE2F;
+        font-display: swap;
+      }
+      @font-face {
+        font-family: Mulish;
+        font-style: normal;
+        font-weight: 700;
+        src: url(/cf-fonts/v/mulish/5.0.16/latin/wght/normal.woff2);
+        unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6,
+          U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+2074, U+20AC,
+          U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+        font-display: swap;
+      }
+      @font-face {
+        font-family: Mulish;
+        font-style: normal;
+        font-weight: 700;
+        src: url(/cf-fonts/v/mulish/5.0.16/latin-ext/wght/normal.woff2);
+        unicode-range: U+0100-02AF, U+0304, U+0308, U+0329, U+1E00-1E9F,
+          U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20CF, U+2113, U+2C60-2C7F,
+          U+A720-A7FF;
+        font-display: swap;
+      }
+      @font-face {
+        font-family: Mulish;
+        font-style: normal;
+        font-weight: 700;
+        src: url(/cf-fonts/v/mulish/5.0.16/vietnamese/wght/normal.woff2);
+        unicode-range: U+0102-0103, U+0110-0111, U+0128-0129, U+0168-0169,
+          U+01A0-01A1, U+01AF-01B0, U+0300-0301, U+0303-0304, U+0308-0309,
+          U+0323, U+0329, U+1EA0-1EF9, U+20AB;
+        font-display: swap;
+      }
+      @font-face {
+        font-family: Mulish;
+        font-style: italic;
+        font-weight: 300;
+        src: url(/cf-fonts/v/mulish/5.0.16/cyrillic/wght/italic.woff2);
+        unicode-range: U+0301, U+0400-045F, U+0490-0491, U+04B0-04B1, U+2116;
+        font-display: swap;
+      }
+      @font-face {
+        font-family: Mulish;
+        font-style: italic;
+        font-weight: 300;
+        src: url(/cf-fonts/v/mulish/5.0.16/latin/wght/italic.woff2);
+        unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6,
+          U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+2074, U+20AC,
+          U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+        font-display: swap;
+      }
+      @font-face {
+        font-family: Mulish;
+        font-style: italic;
+        font-weight: 300;
+        src: url(/cf-fonts/v/mulish/5.0.16/cyrillic-ext/wght/italic.woff2);
+        unicode-range: U+0460-052F, U+1C80-1C88, U+20B4, U+2DE0-2DFF,
+          U+A640-A69F, U+FE2E-FE2F;
+        font-display: swap;
+      }
+      @font-face {
+        font-family: Mulish;
+        font-style: italic;
+        font-weight: 300;
+        src: url(/cf-fonts/v/mulish/5.0.16/latin-ext/wght/italic.woff2);
+        unicode-range: U+0100-02AF, U+0304, U+0308, U+0329, U+1E00-1E9F,
+          U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20CF, U+2113, U+2C60-2C7F,
+          U+A720-A7FF;
+        font-display: swap;
+      }
+      @font-face {
+        font-family: Mulish;
+        font-style: italic;
+        font-weight: 300;
+        src: url(/cf-fonts/v/mulish/5.0.16/vietnamese/wght/italic.woff2);
+        unicode-range: U+0102-0103, U+0110-0111, U+0128-0129, U+0168-0169,
+          U+01A0-01A1, U+01AF-01B0, U+0300-0301, U+0303-0304, U+0308-0309,
+          U+0323, U+0329, U+1EA0-1EF9, U+20AB;
+        font-display: swap;
+      }
+      @font-face {
+        font-family: Mulish;
+        font-style: italic;
+        font-weight: 500;
+        src: url(/cf-fonts/v/mulish/5.0.16/cyrillic-ext/wght/italic.woff2);
+        unicode-range: U+0460-052F, U+1C80-1C88, U+20B4, U+2DE0-2DFF,
+          U+A640-A69F, U+FE2E-FE2F;
+        font-display: swap;
+      }
+      @font-face {
+        font-family: Mulish;
+        font-style: italic;
+        font-weight: 500;
+        src: url(/cf-fonts/v/mulish/5.0.16/latin/wght/italic.woff2);
+        unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6,
+          U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+2074, U+20AC,
+          U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+        font-display: swap;
+      }
+      @font-face {
+        font-family: Mulish;
+        font-style: italic;
+        font-weight: 500;
+        src: url(/cf-fonts/v/mulish/5.0.16/vietnamese/wght/italic.woff2);
+        unicode-range: U+0102-0103, U+0110-0111, U+0128-0129, U+0168-0169,
+          U+01A0-01A1, U+01AF-01B0, U+0300-0301, U+0303-0304, U+0308-0309,
+          U+0323, U+0329, U+1EA0-1EF9, U+20AB;
+        font-display: swap;
+      }
+      @font-face {
+        font-family: Mulish;
+        font-style: italic;
+        font-weight: 500;
+        src: url(/cf-fonts/v/mulish/5.0.16/latin-ext/wght/italic.woff2);
+        unicode-range: U+0100-02AF, U+0304, U+0308, U+0329, U+1E00-1E9F,
+          U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20CF, U+2113, U+2C60-2C7F,
+          U+A720-A7FF;
+        font-display: swap;
+      }
+      @font-face {
+        font-family: Mulish;
+        font-style: italic;
+        font-weight: 500;
+        src: url(/cf-fonts/v/mulish/5.0.16/cyrillic/wght/italic.woff2);
+        unicode-range: U+0301, U+0400-045F, U+0490-0491, U+04B0-04B1, U+2116;
+        font-display: swap;
+      }
+      @font-face {
+        font-family: Mulish;
+        font-style: italic;
+        font-weight: 600;
+        src: url(/cf-fonts/v/mulish/5.0.16/vietnamese/wght/italic.woff2);
+        unicode-range: U+0102-0103, U+0110-0111, U+0128-0129, U+0168-0169,
+          U+01A0-01A1, U+01AF-01B0, U+0300-0301, U+0303-0304, U+0308-0309,
+          U+0323, U+0329, U+1EA0-1EF9, U+20AB;
+        font-display: swap;
+      }
+      @font-face {
+        font-family: Mulish;
+        font-style: italic;
+        font-weight: 600;
+        src: url(/cf-fonts/v/mulish/5.0.16/cyrillic/wght/italic.woff2);
+        unicode-range: U+0301, U+0400-045F, U+0490-0491, U+04B0-04B1, U+2116;
+        font-display: swap;
+      }
+      @font-face {
+        font-family: Mulish;
+        font-style: italic;
+        font-weight: 600;
+        src: url(/cf-fonts/v/mulish/5.0.16/latin-ext/wght/italic.woff2);
+        unicode-range: U+0100-02AF, U+0304, U+0308, U+0329, U+1E00-1E9F,
+          U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20CF, U+2113, U+2C60-2C7F,
+          U+A720-A7FF;
+        font-display: swap;
+      }
+      @font-face {
+        font-family: Mulish;
+        font-style: italic;
+        font-weight: 600;
+        src: url(/cf-fonts/v/mulish/5.0.16/cyrillic-ext/wght/italic.woff2);
+        unicode-range: U+0460-052F, U+1C80-1C88, U+20B4, U+2DE0-2DFF,
+          U+A640-A69F, U+FE2E-FE2F;
+        font-display: swap;
+      }
+      @font-face {
+        font-family: Mulish;
+        font-style: italic;
+        font-weight: 600;
+        src: url(/cf-fonts/v/mulish/5.0.16/latin/wght/italic.woff2);
+        unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6,
+          U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+2074, U+20AC,
+          U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+        font-display: swap;
+      }
+      @font-face {
+        font-family: Mulish;
+        font-style: italic;
+        font-weight: 700;
+        src: url(/cf-fonts/v/mulish/5.0.16/cyrillic/wght/italic.woff2);
+        unicode-range: U+0301, U+0400-045F, U+0490-0491, U+04B0-04B1, U+2116;
+        font-display: swap;
+      }
+      @font-face {
+        font-family: Mulish;
+        font-style: italic;
+        font-weight: 700;
+        src: url(/cf-fonts/v/mulish/5.0.16/latin-ext/wght/italic.woff2);
+        unicode-range: U+0100-02AF, U+0304, U+0308, U+0329, U+1E00-1E9F,
+          U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20CF, U+2113, U+2C60-2C7F,
+          U+A720-A7FF;
+        font-display: swap;
+      }
+      @font-face {
+        font-family: Mulish;
+        font-style: italic;
+        font-weight: 700;
+        src: url(/cf-fonts/v/mulish/5.0.16/cyrillic-ext/wght/italic.woff2);
+        unicode-range: U+0460-052F, U+1C80-1C88, U+20B4, U+2DE0-2DFF,
+          U+A640-A69F, U+FE2E-FE2F;
+        font-display: swap;
+      }
+      @font-face {
+        font-family: Mulish;
+        font-style: italic;
+        font-weight: 700;
+        src: url(/cf-fonts/v/mulish/5.0.16/vietnamese/wght/italic.woff2);
+        unicode-range: U+0102-0103, U+0110-0111, U+0128-0129, U+0168-0169,
+          U+01A0-01A1, U+01AF-01B0, U+0300-0301, U+0303-0304, U+0308-0309,
+          U+0323, U+0329, U+1EA0-1EF9, U+20AB;
+        font-display: swap;
+      }
+      @font-face {
+        font-family: Mulish;
+        font-style: italic;
+        font-weight: 700;
+        src: url(/cf-fonts/v/mulish/5.0.16/latin/wght/italic.woff2);
+        unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6,
+          U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+2074, U+20AC,
+          U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+        font-display: swap;
+      }
+    </style>
+    <style type="text/css">
+      @font-face {
+        font-family: Kanit;
+        font-style: normal;
+        font-weight: 400;
+        src: url(/cf-fonts/s/kanit/5.0.18/latin/400/normal.woff2);
+        unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6,
+          U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+2074, U+20AC,
+          U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+        font-display: swap;
+      }
+      @font-face {
+        font-family: Kanit;
+        font-style: normal;
+        font-weight: 400;
+        src: url(/cf-fonts/s/kanit/5.0.18/latin-ext/400/normal.woff2);
+        unicode-range: U+0100-02AF, U+0304, U+0308, U+0329, U+1E00-1E9F,
+          U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20CF, U+2113, U+2C60-2C7F,
+          U+A720-A7FF;
+        font-display: swap;
+      }
+      @font-face {
+        font-family: Kanit;
+        font-style: normal;
+        font-weight: 400;
+        src: url(/cf-fonts/s/kanit/5.0.18/thai/400/normal.woff2);
+        unicode-range: U+0E01-0E5B, U+200C-200D, U+25CC;
+        font-display: swap;
+      }
+      @font-face {
+        font-family: Kanit;
+        font-style: normal;
+        font-weight: 400;
+        src: url(/cf-fonts/s/kanit/5.0.18/vietnamese/400/normal.woff2);
+        unicode-range: U+0102-0103, U+0110-0111, U+0128-0129, U+0168-0169,
+          U+01A0-01A1, U+01AF-01B0, U+0300-0301, U+0303-0304, U+0308-0309,
+          U+0323, U+0329, U+1EA0-1EF9, U+20AB;
+        font-display: swap;
+      }
+      @font-face {
+        font-family: Kanit;
+        font-style: italic;
+        font-weight: 400;
+        src: url(/cf-fonts/s/kanit/5.0.18/latin/400/italic.woff2);
+        unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6,
+          U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+2074, U+20AC,
+          U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+        font-display: swap;
+      }
+      @font-face {
+        font-family: Kanit;
+        font-style: italic;
+        font-weight: 400;
+        src: url(/cf-fonts/s/kanit/5.0.18/latin-ext/400/italic.woff2);
+        unicode-range: U+0100-02AF, U+0304, U+0308, U+0329, U+1E00-1E9F,
+          U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20CF, U+2113, U+2C60-2C7F,
+          U+A720-A7FF;
+        font-display: swap;
+      }
+      @font-face {
+        font-family: Kanit;
+        font-style: italic;
+        font-weight: 400;
+        src: url(/cf-fonts/s/kanit/5.0.18/thai/400/italic.woff2);
+        unicode-range: U+0E01-0E5B, U+200C-200D, U+25CC;
+        font-display: swap;
+      }
+      @font-face {
+        font-family: Kanit;
+        font-style: italic;
+        font-weight: 400;
+        src: url(/cf-fonts/s/kanit/5.0.18/vietnamese/400/italic.woff2);
+        unicode-range: U+0102-0103, U+0110-0111, U+0128-0129, U+0168-0169,
+          U+01A0-01A1, U+01AF-01B0, U+0300-0301, U+0303-0304, U+0308-0309,
+          U+0323, U+0329, U+1EA0-1EF9, U+20AB;
+        font-display: swap;
+      }
+    </style>
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="/css/navbar.css" />
+    <link rel="stylesheet" href="/css/header.css" />
+    <link rel="stylesheet" href="/css/main.css" />
+  </head>
+
+  <body>
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg" id="mainNav">
+      <div class="container-fluid">
+        <a class="navbar-brand text-uppercase" href="/index.html"
+          >Royal Match</a
+        >
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#navbarNav"
+          aria-controls="navbarNav"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+        >
+          <i class="fa-solid fa-bars text-white">&nbsp;&nbsp;Menu</i>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+          <ul class="navbar-nav ms-auto text-uppercase">
+            <li class="nav-item">
+              <a class="nav-link" href="#features">Features</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#download">Download</a>
+            </li>
+            <li class="nav-item d-flex align-items-center">
+              <button
+                class="btn nav-link feedback-btn"
+                data-bs-toggle="modal"
+                data-bs-target="#feedbackModal"
+              >
+                <i class="fa-solid fa-comment"></i> Send Feedback
+              </button>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+    <!-- Modal -->
+    <div
+      class="modal fade"
+      id="feedbackModal"
+      tabindex="-1"
+      aria-labelledby="feedbackModalLabel"
+      aria-hidden="true"
+    >
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="feedbackModalLabel">Send Feedback</h5>
+            <button
+              type="button"
+              class="btn-close"
+              data-bs-dismiss="modal"
+              aria-label="Close"
+            ></button>
+          </div>
+
+          <div class="modal-body">
+            <form
+              action="https://formsubmit.co/nagihan2202@gmail.com"
+              method="POST"
+            >
+              <div class="form-floating mb-3">
+                <input
+                  type="text"
+                  class="form-control"
+                  id="name"
+                  name="name"
+                  minlength="2"
+                  maxlength="20"
+                  required
+                  placeholder="Full Name"
+                />
+                <label for="name" class="form-label">Full Name</label>
+              </div>
+              <div class="form-floating mb-3">
+                <input
+                  type="email"
+                  class="form-control"
+                  name="email"
+                  id="floatingInput2"
+                  placeholder="name@example.com"
+                />
+                <label for="floatingInput2" class="form-label"
+                  >Email Address</label
+                >
+              </div>
+              <div class="form-floating mb-3">
+                <input
+                  type="number"
+                  pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}"
+                  class="form-control"
+                  id="phone-number"
+                  name="phone-number"
+                  placeholder="Phone Number"
+                  required
+                />
+                <label for="phone-number" class="form-label"
+                  >Phone Number</label
+                >
+              </div>
+              <div class="form-floating mb-3">
+                <textarea
+                  class="form-control"
+                  placeholder="Leave a comment here"
+                  id="message"
+                  name="message"
+                  style="height: 100px"
+                  required
+                ></textarea>
+                <label for="message" class="form-label">Message</label>
+              </div>
+              <div class="d-grid gap-2">
+                <button
+                  type="submit"
+                  class="btn btn-primary rounded-pill btn-lg w-100 disabled"
+                  data-bs-dismiss="modal"
+                >
+                  Submit
+                </button>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <header
+      id="header"
+      class="d-flex justify-content-between align-items-center"
+    >
+      <div class="text-content">
+        <div class="masthead">
+          <div class="container text-center">
+            <h1>Royal Match</h1>
+            <p>Join the game of strategy and fun!</p>
+            <a
+              href="https://play.google.com/store/search?q=royal+match&c=apps"
+              class="playstore-btn"
+              target="_blank"
+            >
+              <img
+                src="assets/google-play-badge.svg"
+                alt="Google Play Badge"
+                class="store-badge"
+              />
+            </a>
+
+            <a
+              href="https://apps.apple.com/us/app/royal-match/id1482155847"
+              class="appstore-btn"
+              target="_blank"
+            >
+              <img
+                src="assets/app-store-badge.svg"
+                alt="App Store Badge"
+                class="store-badge"
+              />
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <div class="masthead-device-mockup position-relative mt-5">
+        <svg
+          class="circle"
+          xmlns="http://www.w3.org/2000/svg"
+          viewBox="0 0 500 500"
+          width="500"
+          height="500"
+        >
+          <defs>
+            <linearGradient id="circleGradient" gradientTransform="rotate(45)">
+              <stop offset="0%" style="stop-color: #7fb500; stop-opacity: 1" />
+              <stop
+                offset="100%"
+                style="stop-color: #354217; stop-opacity: 0.8"
+              />
+            </linearGradient>
+          </defs>
+          <!-- Daire Elemanı -->
+          <circle cx="400" cy="400" r="800" fill="url(#circleGradient)" />
+        </svg>
+        <svg
+          class="shape-1 d-none d-sm-block"
+          viewBox="0 0 240.83 240.83"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <rect
+            x="-32.54"
+            y="78.39"
+            width="305.92"
+            height="84.05"
+            rx="42.03"
+            transform="translate(120.42 -49.88) rotate(45)"
+          ></rect>
+          <rect
+            x="-32.54"
+            y="78.39"
+            width="305.92"
+            height="84.05"
+            rx="42.03"
+            transform="translate(-49.88 120.42) rotate(-45)"
+          ></rect>
+        </svg>
+        <svg
+          class="shape-2 d-none d-sm-block"
+          viewBox="0 0 100 100"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <circle cx="50" cy="50" r="25"></circle>
+        </svg>
+        <div class="device-wrapper z-1 mb-5">
+          <img class="img-fluid phone-mockup" src="assets/royal.png" />
+        </div>
+      </div>
+    </header>
+
+    <aside class="innovations mt-2">
+      <div class="container mt-5">
+        <div class="row">
+          <div class="col-lg-9 col-xl-7 col-xxl-6">
+            <div class="text-lg-start">
+              <h1 class="display-4 fw-bolder text-white mb-3">Innovations</h1>
+              <p class="lead mb-5 text-white-40">
+                Are you ready for a new and exciting update? Get ready for 100
+                new chapters! Fun and exciting new missions await you! Explore
+                the new area! Uncover the endless wonders on every shelf of the
+                magical toy shop! Set sail on adventures with the new event!
+                Face the challenge of the endless waters in the ocean
+                expedition! New episodes are coming every two weeks! Don't
+                forget to update the game to get access to the latest content!
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </aside>
+
+    <section class="features" id="features">
+      <div class="section-device-mockup position-relative">
+        <svg
+          class="circle"
+          xmlns="http://www.w3.org/2000/svg"
+          viewBox="0 0 500 500"
+          width="500"
+          height="500"
+        >
+          <defs>
+            <linearGradient id="circleGradient" gradientTransform="rotate(45)">
+              <stop offset="0%" />
+              <stop offset="100%" />
+            </linearGradient>
+          </defs>
+          <!-- Daire Elemanı -->
+          <circle cx="400" cy="400" r="800" fill="url(#circleGradient)" />
+        </svg>
+        <svg
+          class="shape-3 d-none d-sm-block"
+          viewBox="0 0 240.83 240.83"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <rect
+            x="-32.54"
+            y="78.39"
+            width="305.92"
+            height="84.05"
+            rx="42.03"
+            transform="translate(120.42 -49.88) rotate(45)"
+          ></rect>
+          <rect
+            x="-32.54"
+            y="78.39"
+            width="305.92"
+            height="84.05"
+            rx="42.03"
+            transform="translate(-49.88 120.42) rotate(-45)"
+          ></rect>
+        </svg>
+        <svg
+          class="shape-4 d-none d-sm-block"
+          viewBox="0 0 100 100"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <circle cx="50" cy="50" r="25"></circle>
+        </svg>
+        <div class="section-device-mockup z-1 mb-5 mt-1">
+          <img class="img-fluid phone-mockup" src="assets/royal-section.jpg" />
+        </div>
+      </div>
+
+      <div class="container">
+        <div class="row mb-5">
+          <div class="col-4">
+            <div class="feature-box">
+              <i class="fas fa-cogs feature-icon"></i>
+              <h3 class="feature-title">Customization</h3>
+              <p class="feature-description">
+                Fully customizable options to make the experience yours.
+              </p>
+            </div>
+          </div>
+          <div class="col-4">
+            <div class="feature-box">
+              <i class="fas fa-trophy feature-icon"></i>
+              <h3 class="feature-title">Challenges</h3>
+              <p class="feature-description">
+                Face exciting new challenges and earn rewards.
+              </p>
+            </div>
+          </div>
+
+          <div class="col-4">
+            <div class="feature-box">
+              <i class="fas fa-users feature-icon"></i>
+              <h3 class="feature-title">Multiplayer</h3>
+              <p class="feature-description">
+                Compete or collaborate with players from around the world.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="bg">
+      <div class="container d-flex mb-5">
+        <div class="row">
+          <div class="col-12 col-lg-5 text-center">
+            <h2 class="display-4 lh-1">
+              Join King Robert to restore the Royal Castle
+            </h2>
+            <p class="lead mb-5 position-relative">
+              With Royal Match's relaxing yet challenging match-3 puzzles, you
+              can enjoy the game anytime, anywhere! Simply match three or more
+              of the same color! Make your way through challenging levels,
+              overcoming obstacles! Compete against other players every day of
+              the week in different events like the Royal Cup, Sky Race and more
+              to win prizes! Collect thousands of gold coins in bonus levels!
+              Explore magnificent rooms, royal halls, majestic gardens and many
+              more exciting areas! Join the fun and enjoy the adventures!
+            </p>
+          </div>
+
+          <div class="circle-image-container position-absolute">
+            <img
+              class="circle-image"
+              src="assets/royal-match.webp"
+              alt="Royal Match Logo"
+            />
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Call to action section-->
+
+    <section class="stop-waiting mt-5">
+      <div class="stop-content">
+        <div class="container px-5">
+          <h2 class="text-white display-1 lh-1 mb-4">
+            Stop waiting.
+            <br />
+            Start building.
+          </h2>
+          <a
+            class="btn btn-outline-light py-3 px-4 rounded-pill"
+            href="https://play.google.com/store/search?q=royal+match&c=apps"
+            target="_blank"
+            >Download for free</a
+          >
+        </div>
+      </div>
+
+      <!-- Carousel Section -->
+      <div id="carouselExample" class="carousel slide mt-5">
+        <div class="carousel-inner">
+          <div class="carousel-item active">
+            <img src="/assets/royal4.webp" class="d-block w-100" alt="..." />
+          </div>
+          <div class="carousel-item">
+            <img src="/assets/royal3.webp" class="d-block w-100" alt="..." />
+          </div>
+          <div class="carousel-item">
+            <img src="/assets/royal2.webp" class="d-block w-100" alt="..." />
+          </div>
+        </div>
+        <button
+          class="carousel-control-prev"
+          type="button"
+          data-bs-target="#carouselExample"
+          data-bs-slide="prev"
+        >
+          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Previous</span>
+        </button>
+        <button
+          class="carousel-control-next"
+          type="button"
+          data-bs-target="#carouselExample"
+          data-bs-slide="next"
+        >
+          <span class="carousel-control-next-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Next</span>
+        </button>
+      </div>
+    </section>
+
+    <section class="download" id="download">
+      <div class="container px-5">
+        <h2 class="text-center text-white font-alt mb-4">Get the app now!</h2>
+        <div
+          class="d-flex flex-column flex-lg-row align-items-center justify-content-center"
+        >
+          <a
+            href="https://play.google.com/store/search?q=royal+match&c=apps"
+            class="playstore-btn"
+            target="_blank"
+          >
+            <img
+              src="assets/google-play-badge.svg"
+              alt="Google Play Badge"
+              class="store-badge"
+            />
+          </a>
+          <a
+            href="https://apps.apple.com/us/app/royal-match/id1482155847"
+            class="appstore-btn"
+            target="_blank"
+          >
+            <img
+              src="assets/app-store-badge.svg"
+              alt="App Store Badge"
+              class="store-badge"
+            />
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <footer class="footer text-center py-4">
+      <div class="container">
+        <div class="text-white-50 small">
+          <div class="mb-2">
+            © Nagihan GÜLÜK Website 2024. All Rights Reserved.
+          </div>
+          <a href="#!">Privacy</a>
+          <span class="mx-1">·</span>
+          <a href="#!">Terms</a>
+          <span class="mx-1">·</span>
+          <a href="#!">FAQ</a>
+        </div>
+      </div>
+    </footer>
+    <!-- Bootstrap Bundle (Popper.js dahil) -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  </body>
+</html>

@@ -1,0 +1,132 @@
+#header {
+  background-color: #f8f9fa;
+  padding: 79px;
+  text-align: center;
+}
+
+.masthead h1 {
+  font-size: 3rem;
+  font-weight: 700;
+  color: #597713;
+}
+
+.masthead p {
+  font-size: 1.25rem;
+  color: #6c757d;
+}
+
+.store-badge {
+  padding: 10px;
+  width: 180px;
+  height: auto;
+}
+
+.store-badge:hover {
+  transform: scale(1.05);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+}
+
+.device-wrapper {
+  position: relative;
+  z-index: 10;
+  max-width: 800;
+  margin: 0 auto;
+  top: 50%;
+  right: 50%;
+}
+
+.phone-mockup {
+  max-width: 600px;
+  max-height: 600px;
+  position: absolute;
+  top: 0%;
+  left: 99%;
+  transform: translate(-47%, -90%);
+}
+
+.circle {
+  position: relative;
+  z-index: 0;
+  transform: translateX(-100%);
+  fill: url(#circleGradient);
+  width: 100%;
+  height: 100%;
+  max-width: 500px;
+  max-height: 500px;
+  border-radius: 50%;
+  left: 100%;
+  margin: 0 auto;
+}
+
+.shape-1 {
+  position: absolute;
+  top: 46%;
+  left: 66%;
+  transform: translateX(-300px) translateY(300px);
+  width: 11px;
+  height: 11px;
+  fill: #9ea414;
+  border-radius: 50%;
+  z-index: 15;
+}
+
+.shape-2 {
+  position: absolute;
+  top: 10px;
+  left: 500px;
+  width: 15px;
+  height: 15px;
+  fill: #9ea414;
+  transform: translate(-50%, -50%);
+  border-radius: 50%;
+}
+
+@media (max-width: 768px) {
+  #header {
+    flex-direction: column;
+  }
+
+  .text-content {
+    width: 100%;
+  }
+
+  .masthead h1 {
+    font-size: 2rem;
+  }
+
+  .masthead p {
+    font-size: 1rem;
+  }
+
+  .store-badge {
+    width: 140px;
+  }
+
+  .phone-mockup {
+    max-width: 70%;
+    transform: translate(-34%, -80%);
+  }
+
+  .circle {
+    width: 100%;
+    height: 100%;
+    transform: translateX(-90%);
+    left: 100%;
+  }
+
+  .shape-1 {
+    top: 10px;
+    left: 20px;
+    transform: translateX(-10px) translateY(600px);
+    width: 11px;
+    height: 11px;
+  }
+
+  .shape-2 {
+    top: 10px;
+    left: 450px;
+    width: 15px;
+    height: 15px;
+    transform: translate(95%, -70%);
+  }
+}
